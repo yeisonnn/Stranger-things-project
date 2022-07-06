@@ -1,19 +1,31 @@
-import {Link} from "react-router-dom"
+import { Link } from 'react-router-dom';
+import classes from './Nav.module.css';
 
-const Nav = () => {
-    return ( <nav className="navbar">
-        <div className="navbar-logo">
-            local Stanger Things
-        </div>
-        <div className="navbar-list">
-            <ul className="navbar-links">
-                <li><Link to="/Home">Home</Link></li>
-                <li><Link to="/Post">post</Link></li>
-                <li><Link to="/Profile">profile</Link></li>
-                <li><Link to="/Logout">logout</Link></li>
-            </ul>
-        </div>
-    </nav> );
-}
- 
+const Nav = (props) => {
+  const { isLoggedIn } = props;
+  return (
+    <nav className={classes.navbar}>
+      <div className={classes.logo}>STRANGER THINGS</div>
+      <div>
+        <ul>
+          <li>
+            <Link to="/Home">HOME</Link>
+          </li>
+          <li>
+            <Link to="/Post">POST</Link>
+          </li>
+          <li>
+            <Link to="/Profile">PROFILE</Link>
+          </li>
+          {isLoggedIn && (
+            <li>
+              <Link to="/">LOGOUT</Link>
+            </li>
+          )}
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
 export default Nav;
