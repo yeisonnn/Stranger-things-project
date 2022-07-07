@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { storeCurrentUser } from '../utils/auth';
-import classes from './Form.module.css';
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { storeCurrentUser } from "../utils/auth";
+import classes from "./Form.module.css";
 
 const url =
-  'https://strangers-things.herokuapp.com/api/2206-FTB-ET-WEB-FT/users/register';
+  "https://strangers-things.herokuapp.com/api/2206-FTB-ET-WEB-FT/users/register";
 
 const SignUp = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const navigate = useNavigate();
 
   const userRegisterFetch = async (url) => {
     try {
       const response = await fetch(url, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           user: {
@@ -29,15 +29,14 @@ const SignUp = () => {
 
       if (!response.ok) {
         setError(true);
-        throw new Error('Something went wrong');
+        throw new Error("Something went wrong");
       }
 
       const data = await response.json();
       const { token } = data.data;
-      storeCurrentUser('token', token);
-      storeCurrentUser('username', username);
-      storeCurrentUser('password', password);
-      console.log(data.data);
+      storeCurrentUser("token", token);
+      storeCurrentUser("username", username);
+      storeCurrentUser("password", password);
       return data;
     } catch (error) {
       console.error(error);
@@ -48,14 +47,14 @@ const SignUp = () => {
     e.preventDefault();
     await userRegisterFetch(url);
     if (!error) {
-      navigate('/');
+      navigate("/");
     }
-    setUsername('');
-    setPassword('');
+    setUsername("");
+    setPassword("");
   };
 
   return (
-    <form className={classes['form']} onSubmit={registerUserHandler}>
+    <form className={classes["form"]} onSubmit={registerUserHandler}>
       <h2>SIGN UP</h2>
       <label htmlFor="username">
         <input

@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import classes from './AddPost.module.css';
-import { getCurrentData } from '../utils/auth';
-
+import classes from "./AddPost.module.css";
+import { getCurrentData } from "../utils/auth";
+import { useNavigate } from "react-router-dom";
 const AddPost = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
-  const [location, setLocation] = useState('');
-
-  const token = getCurrentData('token');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [location, setLocation] = useState("");
+  const navigate = useNavigate();
+  const token = getCurrentData("token");
   const URL = `https://strangers-things.herokuapp.com/api/2206-FTB-ET-WEB-FT/posts`;
 
   const addNewPostFecth = async (url) => {
     try {
       const response = await fetch(url, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
@@ -31,11 +31,10 @@ const AddPost = () => {
         }),
       });
       if (!response.ok) {
-        throw new Error('The post was not sent it');
+        throw new Error("The post was not sent it");
       }
 
       const data = await response.json();
-      console.log(data);
       return data;
     } catch (error) {
       console.error(error);
@@ -45,14 +44,15 @@ const AddPost = () => {
   const addNewPostHandler = async (e) => {
     e.preventDefault();
     await addNewPostFecth(URL);
-    setTitle('');
-    setLocation('');
-    setPrice('');
-    setDescription('');
+    setTitle("");
+    setLocation("");
+    setPrice("");
+    setDescription("");
+    navigate("/Posts");
   };
 
   return (
-    <form className={classes['form-newPost']} onSubmit={addNewPostHandler}>
+    <form className={classes["form-newPost"]} onSubmit={addNewPostHandler}>
       <h2>Add New Post</h2>
       <label htmlFor="Title">
         <input

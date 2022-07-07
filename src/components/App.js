@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import Nav from './Nav';
-import { Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import Posts from './Posts';
-import Profile from './Profile';
-import Logout from './Logout';
-import fetchPost from '../api';
-import LogIn from './LogIn';
-import SignUp from './SignUp';
-import AddPost from './AddPost';
-import ViewPost from './ViewPost';
-import UpdatePost from './UpdatePost';
+import React, { useState } from "react";
+import Nav from "./Nav";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import Posts from "./Posts";
+import Profile from "./Profile";
+import Logout from "./Logout";
+import fetchPost from "../api";
+import LogIn from "./LogIn";
+import SignUp from "./SignUp";
+import AddPost from "./AddPost";
+import ViewPost from "./ViewPost";
+import UpdatePost from "./UpdatePost";
+import SendMessage from "./SendMessage";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -26,10 +27,17 @@ function App() {
           <Route path="/Profile" element={<Profile />} />
           <Route path="/Posts" element={<Posts />} />
           <Route
+            path="/Posts/:id/messages"
+            element={<SendMessage setIsLoggedIn={setIsLoggedIn} />}
+          />
+          <Route
             path="/Posts/:id"
             element={<ViewPost setIsLoggedIn={setIsLoggedIn} />}
           />
-          <Route path="/Posts/:id/Update" element={<UpdatePost setIsLoggedIn={setIsLoggedIn}/>}/>
+          <Route
+            path="/Posts/:id/Update"
+            element={<UpdatePost setIsLoggedIn={setIsLoggedIn} />}
+          />
           <Route path="/Logout" element={<Logout />} />
           <Route path="/AddPost" element={<AddPost />} />
         </Routes>
