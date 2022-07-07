@@ -75,7 +75,7 @@ const Posts = (props) => {
               {post.author.username === user ? (
                 <button
                   onClick={() => {
-                    navigate(`/post/${post._id}`);
+                    navigate(`/posts/${post._id}`);
                   }}
                 >
                   VIEW

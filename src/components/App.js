@@ -24,7 +24,10 @@ function App() {
           <Route path="/Home" element={<Home />} />
           <Route path="/Profile" element={<Profile />} />
           <Route path="/Posts" element={<Posts />} />
-          <Route path="/Posts/:id" element={<ViewPost />} />
+          <Route
+            path="/Posts/:id"
+            element={<ViewPost setIsLoggedIn={setIsLoggedIn} />}
+          />
           <Route path="/Logout" element={<Logout />} />
           <Route path="/AddPost" element={<AddPost />} />
         </Routes>
