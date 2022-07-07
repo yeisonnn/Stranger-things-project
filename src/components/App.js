@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import Nav from './Nav';
-import { Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import Post from './Post';
-import Profile from './Profile';
-import Logout from './Logout';
-import fetchPost from '../api';
-import LogIn from './LogIn';
-import SignUp from './SignUp';
-
-const url =
-  'https://strangers-things.herokuapp.com/api/2206-FTB-ET-WEB-FT/posts';
+import React, { useEffect, useState } from "react";
+import Nav from "./Nav";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import Post from "./Post";
+import Profile from "./Profile";
+import Logout from "./Logout";
+import fetchPost from "../api";
+import LogIn from "./LogIn";
+import SignUp from "./SignUp";
+import AddPost from "./AddPost";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -26,6 +24,7 @@ function App() {
           <Route path="/Profile" element={<Profile />} />
           <Route path="/Post" element={<Post />} />
           <Route path="/Logout" element={<Logout />} />
+          <Route path="/AddPost" element={<AddPost />} />
         </Routes>
       </main>
     </div>
