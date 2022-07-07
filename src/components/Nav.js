@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-import classes from './Nav.module.css';
-import LogIn from './LogIn';
+import { Link } from "react-router-dom";
+import classes from "./Nav.module.css";
+import LogIn from "./LogIn";
 
 const Nav = (props) => {
   const { isLoggedIn } = props;
   return (
     <nav className={classes.navbar}>
-      <div className={classes.logo}>STRANGER THINGS</div>
+      <div className={classes.logo}>STRANGER'S THINGS</div>
       <div>
         {isLoggedIn ? (
           <ul>
