@@ -10,6 +10,7 @@ import LogIn from './LogIn';
 import SignUp from './SignUp';
 import AddPost from './AddPost';
 import ViewPost from './ViewPost';
+import UpdatePost from './UpdatePost';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -28,6 +29,7 @@ function App() {
             path="/Posts/:id"
             element={<ViewPost setIsLoggedIn={setIsLoggedIn} />}
           />
+          <Route path="/Posts/:id/Update" element={<UpdatePost setIsLoggedIn={setIsLoggedIn}/>}/>
           <Route path="/Logout" element={<Logout />} />
           <Route path="/AddPost" element={<AddPost />} />
         </Routes>
