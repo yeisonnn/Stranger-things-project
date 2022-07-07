@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import classes from './Nav.module.css';
+import LogIn from './LogIn';
 
 const Nav = (props) => {
   const { isLoggedIn } = props;
@@ -7,22 +8,25 @@ const Nav = (props) => {
     <nav className={classes.navbar}>
       <div className={classes.logo}>STRANGER THINGS</div>
       <div>
-        <ul>
-          <li>
-            <Link to="/Home">HOME</Link>
-          </li>
-          <li>
-            <Link to="/Post">POST</Link>
-          </li>
-          <li>
-            <Link to="/Profile">PROFILE</Link>
-          </li>
-          {isLoggedIn && (
+        {isLoggedIn ? (
+          <ul>
+            <li>
+              <Link to="/Home">HOME</Link>
+            </li>
+            <li>
+              <Link to="/Posts">POSTS</Link>
+            </li>
+            <li>
+              <Link to="/Profile">PROFILE</Link>
+            </li>
+
             <li>
               <Link to="/">LOGOUT</Link>
             </li>
-          )}
-        </ul>
+          </ul>
+        ) : (
+          <p>Please LogIn</p>
+        )}
       </div>
     </nav>
   );
