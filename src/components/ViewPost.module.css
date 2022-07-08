@@ -1,0 +1,113 @@
+.viewPost {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 1.5rem 1.6rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 60%;
+}
+
+.viewPost h2 {
+  border-bottom: 2px solid #555;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  color: #555;
+  font-size: 3rem;
+}
+
+.viewPost p::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  background-color: #555;
+  height: 10px;
+  margin-right: 1rem;
+  border-radius: 100%;
+}
+
+.viewPost button {
+  appearance: button;
+  border: solid transparent;
+  border-radius: 1.6rem;
+  border-width: 0 0 4px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 2rem;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 1.3rem 1.6rem;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 40%;
+}
+
+.viewPost button:nth-child(1) {
+  background-color: hsl(0, 74%, 45%);
+}
+
+.viewPost button:nth-child(1)::after {
+  background-color: hsl(0, 74%, 58%);
+}
+
+.viewPost button:nth-child(2) {
+  background-color: #1899d6;
+}
+
+.viewPost button:nth-child(2)::after {
+  background-color: #1cb0f6;
+}
+
+.viewPost button::after {
+  background-clip: padding-box;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.viewPost button:main,
+.viewPost button:focus {
+  user-select: auto;
+}
+
+.viewPost button:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.viewButtons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 890px) {
+  .viewPost {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .viewPost {
+    width: 90%;
+  }
+}

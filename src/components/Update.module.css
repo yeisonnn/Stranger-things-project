@@ -4,7 +4,6 @@
   --color-bg: #ebecf0;
   --color-shadow: #babecc;
   --color-white: #fff;
-  --color-red: #f03e3e;
 }
 
 .form-updatePost {
@@ -59,7 +58,7 @@ input {
 
 .form-updatePost button {
   color: #61677c;
-  color: var(--color-red);
+  color: hsl(131, 50%, 50%);
   font-weight: bold;
   box-shadow: -5px -5px 20px var(--color-white),
     5px 5px 20px var(--color-shadow);
@@ -75,18 +74,4 @@ input {
 .form-updatePost button:active {
   box-shadow: inset 1px 1px 2px var(--color-shadow),
     inset -1px -1px 2px var(--color-white);
-}
-
-.signUp {
-  font-size: 1.4rem;
-}
-
-.signUp a {
-  color: #343a40;
-  text-decoration: none;
-}
-
-.signUp a:hover {
-  border-bottom: 1px solid #f03e3e;
-  color: #212529;
 }

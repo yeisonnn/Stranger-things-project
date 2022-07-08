@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+
+.home {
+  font-family: 'Graduate', cursive;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.title {
+  background-color: hsl(0, 0%, 22%);
+}
+.title h1 {
+  font-size: 4rem;
+  background-image: radial-gradient(circle farthest-side, #fceabb, #f8b500);
+  -webkit-background-clip: text;
+  color: transparent;
+  padding: 1.6rem;
+}
+
+.home h5 {
+  font-size: 2rem;
+}
+
+.home h5 span {
+  font-size: 2.2rem;
+  color: hsl(228, 94%, 57%);
+}
+
+.home p {
+  font-size: 2.8rem;
+}
+
+.home a {
+  color: hsl(228, 94%, 57%);
+}

@@ -89,3 +89,9 @@ input {
   border-bottom: 1px solid #f03e3e;
   color: #212529;
 }
+
+@media screen and (max-width: 890px) {
+  .form {
+    width: 70%;
+  }
+}

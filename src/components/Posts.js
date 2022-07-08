@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { getCurrentData } from "../utils/auth";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { getCurrentData } from '../utils/auth';
 
-import classes from "./Post.module.css";
+import classes from './Post.module.css';
 
 const url =
-  "https://strangers-things.herokuapp.com/api/2206-FTB-ET-WEB-FT/posts";
+  'https://strangers-things.herokuapp.com/api/2206-FTB-ET-WEB-FT/posts';
 
 const Posts = (props) => {
   const [posts, setPosts] = useState([]);
-  const user = getCurrentData("username");
-  const token = getCurrentData("token");
+  const user = getCurrentData('username');
   const navigate = useNavigate();
 
   const postFetch = async (url) => {
     try {
       const response = await fetch(url);
       if (!response.ok) {
-        throw new Error("There was a Problem!!");
+        throw new Error('There was a Problem!!');
       }
       const data = await response.json();
       setPosts(data.data.posts);
@@ -30,28 +29,16 @@ const Posts = (props) => {
     postFetch(url);
   }, []);
 
-  const viewPostFetch = async (id) => {
-    try {
-      const response = await fetch(
-        `http://strangers-things.herokuapp.com/api/2206-FTB-ET-WEB-FT/posts/${id}`
-      );
-
-      const data = await response.json();
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <div>
-      <div className={classes["posts-search"]}>
+      <div className={classes['posts-search']}>
         <h2>Posts</h2>
         <label htmlFor="searchPost">
           <input id="searchPost" type="text" placeholder="Search a Post" />
         </label>
         <Link to="/AddPost">ADD POST</Link>
       </div>
-      <div className={classes["posts-info"]}>
+      <div className={classes['posts-info']}>
         {posts.map((post) => {
           return (
             <div key={post._id} className={classes.post} id={post._id}>
