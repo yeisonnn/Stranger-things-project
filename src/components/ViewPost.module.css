@@ -1,3 +1,7 @@
+.view-section {
+  width: 50%;
+}
+
 .viewPost {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   padding: 1.5rem 1.6rem;
@@ -5,25 +9,25 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  width: 60%;
+}
+
+.viewPost img {
+  width: 25px;
+  height: 25px;
+  margin-right: 0.5rem;
 }
 
 .viewPost h2 {
-  border-bottom: 2px solid #555;
+  border-bottom: 2px solid #333;
   text-transform: uppercase;
   margin-bottom: 2rem;
   color: #555;
   font-size: 3rem;
 }
 
-.viewPost p::before {
-  content: '';
-  display: inline-block;
-  width: 10px;
-  background-color: #555;
-  height: 10px;
-  margin-right: 1rem;
-  border-radius: 100%;
+.viewPost p span {
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .viewPost button {
@@ -35,14 +39,14 @@
   cursor: pointer;
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 2rem;
   margin: 0;
   outline: none;
   overflow: visible;
-  padding: 1.3rem 1.6rem;
+  padding: 0.8rem 1rem;
   text-align: center;
   text-transform: uppercase;
   touch-action: manipulation;
@@ -52,7 +56,7 @@
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  width: 40%;
+  width: 20%;
 }
 
 .viewPost button:nth-child(1) {
@@ -97,17 +101,18 @@
 
 .viewButtons {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  gap: 1.2rem;
 }
 
 @media screen and (max-width: 890px) {
-  .viewPost {
+  .view-section {
     width: 70%;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .viewPost {
+  .view-section {
     width: 90%;
   }
 }

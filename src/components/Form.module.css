@@ -78,16 +78,33 @@ input {
 
 .signUp {
   font-size: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .signUp a {
-  color: #343a40;
+  color: #333;
   text-decoration: none;
+  font-size: 1.6rem;
 }
 
 .signUp a:hover {
-  border-bottom: 1px solid #f03e3e;
-  color: #212529;
+  border-bottom: 2px solid #4dabf7;
+  color: #111;
+}
+
+.signUp button {
+  background-color: hsl(0, 86%, 65%);
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  text-shadow: none;
+}
+
+.signUp button:hover,
+.signUp button:active {
+  background-color: hsl(0, 86%, 59%);
 }
 
 @media screen and (max-width: 890px) {

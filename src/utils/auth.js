@@ -7,6 +7,6 @@ export function getCurrentData(key) {
   return data;
 }
 
-export function clearCurrentData(key) {
-  localStorage.removeItem(key);
+export function clearCurrentData() {
+  localStorage.clear();
 }

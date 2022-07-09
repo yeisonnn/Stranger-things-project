@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import Nav from "./Nav";
-import { Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import Posts from "./Posts";
-import Profile from "./Profile";
-import LogIn from "./LogIn";
-import SignUp from "./SignUp";
-import AddPost from "./AddPost";
-import ViewPost from "./ViewPost";
-import UpdatePost from "./UpdatePost";
-import SendMessage from "./SendMessage";
+import React, { useState } from 'react';
+import Nav from './Nav';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import Posts from './Posts';
+import Profile from './Profile';
+import LogIn from './LogIn';
+import SignUp from './SignUp';
+import AddPost from './AddPost';
+import ViewPost from './ViewPost';
+import UpdatePost from './UpdatePost';
+import SendMessage from './SendMessage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,7 +34,7 @@ function App() {
             element={<Posts setIsLoggedIn={setIsLoggedIn} />}
           />
           <Route
-            path="/Posts/:id"
+            path="/Posts/:id/*"
             element={<ViewPost setIsLoggedIn={setIsLoggedIn} />}
           />
           <Route

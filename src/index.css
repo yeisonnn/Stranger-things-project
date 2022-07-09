@@ -30,8 +30,12 @@ body {
   align-items: center;
 }
 
-@media screen and (max-width: 600px) {
+.spinner {
+  text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
   html {
-    background-color: red;
+    font-size: 55%;
   }
 }

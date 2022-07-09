@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { getCurrentData } from '../utils/auth';
+import { userLoginFetch } from '../api/index';
 import classes from './Form.module.css';
 
 const LogIn = (props) => {
@@ -15,37 +16,15 @@ const LogIn = (props) => {
   const user = getCurrentData('username');
   const userPassword = getCurrentData('password');
 
-  const URL = `https://strangers-things.herokuapp.com/api/2206-FTB-ET-WEB-FT/users/me`;
-
-  const userLoginFetch = async (url) => {
-    try {
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error('Something Went Wrong');
-      }
-
-      const data = await response.json();
-      console.log(data, 'here from login');
-      if (data.data) {
-        navigate('/profile');
-      }
-      return data;
-    } catch (error) {
-      console.error(error);
-    }
+  const loginOptions = {
+    navigate: navigate,
+    token: token,
   };
 
   const loginUserHandler = async (e) => {
     e.preventDefault();
     if (username === user && password === userPassword) {
-      await userLoginFetch(URL);
+      await userLoginFetch(loginOptions);
       setIsLoggedIn(true);
     }
   };

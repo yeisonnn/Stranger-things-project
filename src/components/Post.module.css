@@ -1,10 +1,19 @@
-.posts-search {
-  display: flex;
+.posts-section {
+  width: 70%;
+  padding: 1.6rem;
+}
 
-  justify-content: center;
-  gap: 2rem;
-  align-items: center;
-  padding: 1rem;
+.noFound {
+  color: #e03131;
+  margin-top: 12rem;
+  text-align: center;
+  font-size: 6rem;
+}
+
+.posts-search {
+  display: grid;
+  row-gap: 1rem;
+  padding: 1rem 1.4rem;
   background-color: hsl(0, 0%, 95%);
   border-radius: 10px;
   margin: 1.4rem 0;
@@ -18,7 +27,7 @@
 
 .posts-search label {
   display: block;
-  width: 60%;
+  width: 100%;
 }
 
 .posts-search input {
@@ -45,11 +54,11 @@
   text-decoration: none;
   color: #37b24d;
   font-size: 1.8rem;
+  margin-right: 6rem;
 }
 
 .posts-search a:hover {
-  border-bottom: 2px solid #37b24d;
-  transform: scale(1.06);
+  color: hsl(131, 53%, 40%);
 }
 
 .post {
@@ -116,8 +125,30 @@
   -webkit-filter: brightness(1.1);
 }
 
+.plus {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0, 4rem;
+  position: relative;
+}
+
+.plus img {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  margin-left: 10px;
+  position: absolute;
+}
+
 @media screen and (max-width: 890px) {
   .post button {
     width: 60%;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .posts-section {
+    width: 90%;
   }
 }
