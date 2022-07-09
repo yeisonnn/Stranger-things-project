@@ -3,6 +3,17 @@
   padding: 2rem;
 }
 
+.profile-section h4 {
+  font-size: 4rem;
+
+  background-image: linear-gradient(to right, #00b4db, #0083b0);
+  color: #fff;
+  padding: 1rem;
+  border-radius: 20px;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+}
 .profile {
   display: flex;
   flex-direction: column;

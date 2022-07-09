@@ -107,6 +107,11 @@ input {
   background-color: hsl(0, 86%, 59%);
 }
 
+.warning {
+  font-size: 1rem;
+  color: hsl(0, 86%, 59%);
+}
+
 @media screen and (max-width: 890px) {
   .form {
     width: 70%;

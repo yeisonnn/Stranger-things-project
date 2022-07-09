@@ -11,6 +11,8 @@ const SignUp = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
+  const [deleteAccount, setDeleteAccount] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
   const navigate = useNavigate();
 
   const userRegisterFetch = async (url) => {
@@ -47,7 +49,7 @@ const SignUp = () => {
   const registerUserHandler = async (e) => {
     e.preventDefault();
     await userRegisterFetch(url);
-    if (!error) {
+    if (!error && !deleteAccount) {
       navigate('/');
     }
     setUsername('');
@@ -55,7 +57,13 @@ const SignUp = () => {
   };
 
   const deleteAccountHandler = () => {
-    clearCurrentData();
+    if (localStorage.length > 0) {
+      clearCurrentData();
+      setDeleteAccount(true);
+    } else {
+      setDeleteAccount(false);
+      return;
+    }
   };
 
   return (
@@ -70,10 +78,11 @@ const SignUp = () => {
           onChange={(e) => {
             setUsername(e.target.value);
             setError(false);
+            setDeleteAccount(false);
+            setIsTyping(true);
           }}
         />
       </label>
-      {error && <span>Try another user name</span>}
 
       <label htmlFor="password">
         <input
@@ -84,14 +93,25 @@ const SignUp = () => {
           onChange={(e) => {
             setPassword(e.target.value);
             setError(false);
+            setIsTyping(true);
           }}
         />
       </label>
 
-      <button type="submit">SIGN UP</button>
+      <button type="submit" disabled={!isTyping}>
+        SIGN UP
+      </button>
+      {deleteAccount && (
+        <span className={classes.warning}>The Account was deleted</span>
+      )}
       <p className={classes.signUp}>
         <Link to="/">Log In HERE!</Link>
-        <button onClick={deleteAccountHandler}>Delete Account</button>
+        <button
+          onClick={deleteAccountHandler}
+          disabled={localStorage.length ? false : true}
+        >
+          Delete Account
+        </button>
       </p>
     </form>
   );

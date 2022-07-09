@@ -28,6 +28,8 @@
 .viewPost p span {
   text-transform: uppercase;
   font-weight: bold;
+  color: #333;
+  font-size: 1.6rem;
 }
 
 .viewPost button {

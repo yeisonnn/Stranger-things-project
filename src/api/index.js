@@ -19,6 +19,7 @@ export async function postFetch(ObjOptions) {
 
 // Fetching profile data function
 export async function userProfileFetch(ObjOptions) {
+  ObjOptions.setIsLoading(true);
   try {
     const response = await fetch(
       `https://strangers-things.herokuapp.com/api/2206-FTB-ET-WEB-FT/users/me`,
@@ -36,6 +37,7 @@ export async function userProfileFetch(ObjOptions) {
     }
     const data = await response.json();
     ObjOptions.setInitialState(data.data.messages);
+    ObjOptions.setIsLoading(false);
     return data.data.messages;
   } catch (error) {
     console.error(error);
