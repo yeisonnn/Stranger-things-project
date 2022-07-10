@@ -11,7 +11,7 @@ These are some of the features of this SPA:
 - View posts & messages from different users.
 - Create, update & delete your own posts.
 - Send messages to other users.
-- Markdown on your messages.
+- Marks on own messages.
 - Filter posts.
 - Navigate between different pages.
 - Authentication of users.
@@ -32,7 +32,7 @@ These are some of the features of this SPA:
 
 ![alt text](./src/icons/messages.jpg)
 
-## Delevopers.
+## Developers.
 
 Stranger's -Things Project was delevoped with collaboaration of :
 
