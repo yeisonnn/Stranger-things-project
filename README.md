@@ -13,7 +13,7 @@ These are some of the features of this SPA:
 - Send messages to other users.
 - Markdown on your messages.
 - Filter posts.
-- Navigate between different pages by using the navbar.
+- Navigate between different pages.
 - Authentication of users.
 - Simple and intuitive user experience.
 - and More!
