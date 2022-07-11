@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { getCurrentData } from '../utils/auth';
-import { postFetch } from '../api/index';
-import classes from './Post.module.css';
-import Spinner from './Spinner';
-import plusLogo from '../icons/plus.svg';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { getCurrentData } from "../utils/auth";
+import { postFetch } from "../api/index";
+import classes from "./Post.module.css";
+import Spinner from "./Spinner";
+import plusLogo from "../icons/plus.svg";
 
 const Posts = (props) => {
-  const { setIsLoggedIn } = props;
+  // const { setIsLoggedIn } = props;
   const [filtered, setFiltered] = useState([]);
   const [posts, setPosts] = useState([]);
-  const user = getCurrentData('username');
+  const user = getCurrentData("username");
   const navigate = useNavigate();
-  setIsLoggedIn(true);
+  // setIsLoggedIn(true);
 
   const postOptions = {
     setInitialState: setPosts,
@@ -33,7 +33,7 @@ const Posts = (props) => {
   };
 
   return (
-    <div className={classes['posts-section']}>
+    <div className={classes["posts-section"]}>
       {!posts.length ? (
         <div className="spinner">
           <Spinner />
@@ -42,7 +42,7 @@ const Posts = (props) => {
       ) : (
         <>
           <div>
-            <div className={classes['posts-search']}>
+            <div className={classes["posts-search"]}>
               <h2>Posts</h2>
               <form>
                 <label htmlFor="searchPost">
@@ -54,14 +54,16 @@ const Posts = (props) => {
                   />
                 </label>
               </form>
-              <div className={classes.plus}>
-                <Link to="/AddPost">
-                  ADD POST
-                  <img src={plusLogo} alt="plus logo" />
-                </Link>
-              </div>
+              {localStorage.length ? (
+                <div className={classes.plus}>
+                  <Link to="/AddPost">
+                    ADD POST
+                    <img src={plusLogo} alt="plus logo" />
+                  </Link>
+                </div>
+              ) : null}
             </div>
-            <div className={classes['posts-info']}>
+            <div className={classes["posts-info"]}>
               {!filtered.length ? (
                 <h2 className={classes.noFound}>NO POST FOUND!!</h2>
               ) : (
@@ -87,6 +89,7 @@ const Posts = (props) => {
                           onClick={() => {
                             navigate(`/posts/${post._id}/messages`);
                           }}
+                          disabled={!localStorage.length}
                         >
                           SEND A MESSAGE
                         </button>

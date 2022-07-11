@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import classes from './Update.module.css';
-import { getCurrentData } from '../utils/auth';
-import { useParams } from 'react-router-dom';
-import { updateFetch, singlePostFetch } from '../api';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import classes from "./Update.module.css";
+import { getCurrentData } from "../utils/auth";
+import { useParams } from "react-router-dom";
+import { updateFetch, singlePostFetch } from "../api";
 
 const UpdatePost = (props) => {
-  const [singlePost, setSinglePost] = useState('');
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
-  const [location, setLocation] = useState('');
+  const [singlePost, setSinglePost] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [location, setLocation] = useState("");
   const navigate = useNavigate();
-  const { setIsLoggedIn } = props;
+  // const { setIsLoggedIn } = props;
   const params = useParams();
-  setIsLoggedIn(true);
-  const token = getCurrentData('token');
+  // setIsLoggedIn(true);
+  const token = getCurrentData("token");
 
   const updateInputs = async () => {
     singlePostFetch({ initialState: setSinglePost, params });
   };
 
-  console.log(singlePost, 'here in component');
+  console.log(singlePost, "here in component");
 
   const updateOptions = {
     id: params.id,
@@ -33,13 +33,13 @@ const UpdatePost = (props) => {
   };
 
   return (
-    <div className={classes['update-section']}>
+    <div className={classes["update-section"]}>
       <form
-        className={classes['form-updatePost']}
+        className={classes["form-updatePost"]}
         onSubmit={async (e) => {
           e.preventDefault();
           await updateFetch(updateOptions);
-          navigate('/Posts');
+          navigate("/Posts");
         }}
       >
         <h2>Update Post</h2>

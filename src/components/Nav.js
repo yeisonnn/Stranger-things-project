@@ -3,12 +3,11 @@ import classes from "./Nav.module.css";
 import LogIn from "./LogIn";
 
 const Nav = (props) => {
-  const { isLoggedIn } = props;
   return (
     <nav className={classes.navbar}>
       <div className={classes.logo}>STRANGER'S THINGS</div>
       <div>
-        {isLoggedIn ? (
+        {localStorage.length ? (
           <ul>
             <li>
               <Link to="/Home">HOME</Link>
@@ -20,12 +19,28 @@ const Nav = (props) => {
               <Link to="/Profile">PROFILE</Link>
             </li>
 
-            <li>
-              <Link to="/">LOGOUT</Link>
-            </li>
+            {localStorage.length ? (
+              <li>
+                <Link to="/">LOGOUT</Link>
+              </li>
+            ) : (
+              <li>
+                <Link to="/">LOGIN</Link>
+              </li>
+            )}
           </ul>
         ) : (
-          <p>Please LogIn</p>
+          <ul>
+            <li>
+              <Link to="/Home">HOME</Link>
+            </li>
+            <li>
+              <Link to="/Posts">POSTS</Link>
+            </li>
+            <li>
+              <Link to="/">LOGIN</Link>
+            </li>
+          </ul>
         )}
       </div>
     </nav>

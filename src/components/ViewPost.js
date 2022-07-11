@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, Route, Routes } from 'react-router-dom';
-import { getCurrentData } from '../utils/auth';
-import { useNavigate } from 'react-router-dom';
-import { singlePostFetch, deleteFetch } from '../api';
-import classes from './ViewPost.module.css';
-import Spinner from './Spinner';
-import UpdatePost from './UpdatePost';
-import pen from '../icons/pen.svg';
-import locationLogo from '../icons/location.svg';
-import priceLogo from '../icons/price.svg';
+import React, { useEffect, useState } from "react";
+import { useParams, Route, Routes } from "react-router-dom";
+import { getCurrentData } from "../utils/auth";
+import { useNavigate } from "react-router-dom";
+import { singlePostFetch, deleteFetch } from "../api";
+import classes from "./ViewPost.module.css";
+import Spinner from "./Spinner";
+import UpdatePost from "./UpdatePost";
+import pen from "../icons/pen.svg";
+import locationLogo from "../icons/location.svg";
+import priceLogo from "../icons/price.svg";
 
 const ViewPost = (props) => {
-  const { setIsLoggedIn } = props;
-  const [postsId, setPostsId] = useState('');
+  // const { setIsLoggedIn } = props;
+  const [postsId, setPostsId] = useState("");
   const params = useParams();
-  const token = getCurrentData('token');
-  setIsLoggedIn(true);
+  const token = getCurrentData("token");
+  // setIsLoggedIn(true);
 
   const navigate = useNavigate();
 
@@ -34,7 +34,7 @@ const ViewPost = (props) => {
   }, []);
 
   return (
-    <div className={classes['view-section']}>
+    <div className={classes["view-section"]}>
       {!postsId ? (
         <div className="spinner">
           <Spinner />
@@ -44,16 +44,16 @@ const ViewPost = (props) => {
         <div className={classes.viewPost}>
           <h2>{postsId.title}</h2>
           <p>
-            {' '}
+            {" "}
             <img src={pen} alt="pen" />
             <span>Description: </span> {postsId.description}
           </p>
           <p>
-            <img src={priceLogo} alt="price" /> <span>Price: </span>{' '}
+            <img src={priceLogo} alt="price" /> <span>Price: </span>{" "}
             {postsId.price}
           </p>
           <p>
-            {' '}
+            {" "}
             <img src={locationLogo} alt="locaTION" /> <span>Location: </span>
             {postsId.location}
           </p>
@@ -62,7 +62,7 @@ const ViewPost = (props) => {
             <button
               onClick={async () => {
                 await deleteFetch(deleteOptions);
-                navigate('/Posts');
+                navigate("/Posts");
               }}
             >
               Delete
