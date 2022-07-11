@@ -68,55 +68,67 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <form className={classes['form']} onSubmit={registerUserHandler}>
-        <h2>SIGN UP</h2>
-        <label htmlFor="username">
-          <input
-            id="username"
-            type="text"
-            placeholder="enter a username"
-            value={username}
-            onChange={(e) => {
-              setUsername(e.target.value);
-              setError(false);
-              setDeleteAccount(false);
-              setIsTyping(true);
-            }}
-          />
-        </label>
+    <section className={classes.formContainer}>
+      <nav className={styles.navbar}>
+        <div className={styles.logo}>STRANGER'S THINGS</div>
+        <div>
+          <ul>
+            <li>
+              <Link to="/">Login</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div className={classes['main-content']}>
+        <form className={classes['form']} onSubmit={registerUserHandler}>
+          <h2>SIGN UP</h2>
+          <label htmlFor="username">
+            <input
+              id="username"
+              type="text"
+              placeholder="enter a username"
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+                setError(false);
+                setDeleteAccount(false);
+                setIsTyping(true);
+              }}
+            />
+          </label>
 
-        <label htmlFor="password">
-          <input
-            id="password"
-            type="text"
-            placeholder="enter a password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-              setError(false);
-              setIsTyping(true);
-            }}
-          />
-        </label>
+          <label htmlFor="password">
+            <input
+              id="password"
+              type="text"
+              placeholder="enter a password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError(false);
+                setIsTyping(true);
+              }}
+            />
+          </label>
 
-        <button type="submit" disabled={!isTyping}>
-          SIGN UP
-        </button>
-        {deleteAccount && (
-          <span className={classes.warning}>The Account was deleted</span>
-        )}
-        <p className={classes.signUp}>
-          <Link to="/">Log In HERE!</Link>
-          <button
-            onClick={deleteAccountHandler}
-            disabled={localStorage.length ? false : true}
-          >
-            Delete Account
+          <button type="submit" disabled={!isTyping}>
+            SIGN UP
           </button>
-        </p>
-      </form>
-    </>
+          {deleteAccount && (
+            <span className={classes.warning}>The Account was deleted</span>
+          )}
+          <p className={classes.signUp}>
+            <Link to="/">Log In HERE!</Link>
+            <button
+              onClick={deleteAccountHandler}
+              disabled={localStorage.length ? false : true}
+            >
+              Delete Account
+            </button>
+          </p>
+        </form>
+      </div>
+    </section>
   );
 };
 

@@ -36,3 +36,10 @@
 .home a {
   color: hsl(228, 94%, 57%);
 }
+
+@media screen and (max-width: 750px) {
+  .title h1 {
+    font-size: 3.2rem;
+    text-align: center;
+  }
+}

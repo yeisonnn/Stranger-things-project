@@ -6,11 +6,10 @@ import classes from './Form.module.css';
 import styles from './Nav.module.css';
 
 const LogIn = (props) => {
-  // const { setIsLoggedIn } = props;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState(false);
   const navigate = useNavigate();
-  // setIsLoggedIn(false);
 
   // From local storage
   const token = getCurrentData('token');
@@ -26,12 +25,13 @@ const LogIn = (props) => {
     e.preventDefault();
     if (username === user && password === userPassword) {
       await userLoginFetch(loginOptions);
-      // setIsLoggedIn(true);
+    } else {
+      setError(true);
     }
   };
 
   return (
-    <section className={classes.loginForm}>
+    <section className={classes.formContainer}>
       <nav className={styles.navbar}>
         <div className={styles.logo}>STRANGER'S THINGS</div>
         <div>
@@ -51,7 +51,10 @@ const LogIn = (props) => {
               type="text"
               placeholder="enter a username"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => {
+                setError(false);
+                setUsername(e.target.value);
+              }}
             />
           </label>
 
@@ -61,10 +64,15 @@ const LogIn = (props) => {
               type="password"
               placeholder="enter a password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setError(false);
+                setPassword(e.target.value);
+              }}
             />
           </label>
-
+          {error && (
+            <p className={classes.error}>Username & password do not match</p>
+          )}
           <button type="submit">LOG IN</button>
           <p className={classes.signUp}>
             <Link to="/signUp">Don't Have a account? Sign Up</Link>

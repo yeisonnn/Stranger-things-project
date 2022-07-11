@@ -25,9 +25,7 @@ function App() {
           <Route path="/Posts" element={<Posts />} />
           <Route path="/Posts/:id/*" element={<ViewPost />} />
           <Route path="/Posts/:id/messages" element={<SendMessage />} />
-
           <Route path="/Posts/:id/Update" element={<UpdatePost />} />
-
           <Route path="/AddPost" element={<AddPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

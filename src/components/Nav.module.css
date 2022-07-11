@@ -38,6 +38,6 @@
 @media screen and (max-width: 890px) {
   .navbar {
     flex-direction: column;
-    min-height: 15vh;
+    min-height: 13vh;
   }
 }

@@ -8,7 +8,7 @@
   --color-white: #fff;
 }
 
-.loginForm {
+.formContainer {
   display: grid;
   grid-template-rows: 12vh 88vh;
   border: 1px solid #000;
@@ -122,6 +122,11 @@ input {
 
 .warning {
   font-size: 1rem;
+  color: hsl(0, 86%, 59%);
+}
+
+.error {
+  font-size: 1.4rem;
   color: hsl(0, 86%, 59%);
 }
 
