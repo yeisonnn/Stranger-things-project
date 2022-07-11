@@ -1,20 +1,19 @@
-import React, { useState } from "react";
-import Nav from "./Nav";
-import { Route, Routes } from "react-router-dom";
-import Home from "./Home";
-import Posts from "./Posts";
-import Profile from "./Profile";
-import LogIn from "./LogIn";
-import SignUp from "./SignUp";
-import AddPost from "./AddPost";
-import ViewPost from "./ViewPost";
-import UpdatePost from "./UpdatePost";
-import SendMessage from "./SendMessage";
-import Test from "./Test";
+import React from 'react';
+
+import { Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import Posts from './Posts';
+import Profile from './Profile';
+import LogIn from './LogIn';
+import SignUp from './SignUp';
+import AddPost from './AddPost';
+import ViewPost from './ViewPost';
+import UpdatePost from './UpdatePost';
+import SendMessage from './SendMessage';
+
+import NotFound from './NotFound';
 
 function App() {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-
   return (
     <div>
       <main className="main">
@@ -30,7 +29,7 @@ function App() {
           <Route path="/Posts/:id/Update" element={<UpdatePost />} />
 
           <Route path="/AddPost" element={<AddPost />} />
-          <Route path="/test" element={<Test />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </div>

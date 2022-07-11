@@ -8,6 +8,19 @@
   --color-white: #fff;
 }
 
+.loginForm {
+  display: grid;
+  grid-template-rows: 12vh 88vh;
+  border: 1px solid #000;
+  width: 100vw;
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .form {
   display: flex;
   flex-direction: column;
