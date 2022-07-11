@@ -5,6 +5,7 @@ import { postFetch } from "../api/index";
 import classes from "./Post.module.css";
 import Spinner from "./Spinner";
 import plusLogo from "../icons/plus.svg";
+import Layout from "./Layout";
 
 const Posts = (props) => {
   // const { setIsLoggedIn } = props;
