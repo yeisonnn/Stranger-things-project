@@ -69,7 +69,7 @@ const ViewPost = () => {
               </button>
               <button
                 onClick={() => {
-                  navigate(`/Posts/${params.id}/Update`);
+                  navigate(`/Posts/${params.id}/Update`, { state: { postInfo: postsId } });
                 }}
               >
                 Edit

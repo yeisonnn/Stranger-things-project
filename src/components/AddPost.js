@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Layout from './Layout'
 
 import classes from "./AddPost.module.css";
 import { getCurrentData } from "../utils/auth";
@@ -52,49 +53,51 @@ const AddPost = () => {
   };
 
   return (
-    <form className={classes["form-newPost"]} onSubmit={addNewPostHandler}>
-      <h2>Add New Post</h2>
-      <label htmlFor="Title">
-        <input
-          id="Title"
-          type="text"
-          placeholder="enter a Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </label>
+    <Layout>
+      <form className={classes["form-newPost"]} onSubmit={addNewPostHandler}>
+        <h2>Add New Post</h2>
+        <label htmlFor="Title">
+          <input
+            id="Title"
+            type="text"
+            placeholder="enter a Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </label>
 
-      <label htmlFor="Description">
-        <input
-          id="Description"
-          type="Description"
-          placeholder="enter a Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </label>
+        <label htmlFor="Description">
+          <input
+            id="Description"
+            type="Description"
+            placeholder="enter a Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </label>
 
-      <label htmlFor="Price">
-        <input
-          id="Price"
-          type="Price"
-          placeholder="enter a Price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-      </label>
+        <label htmlFor="Price">
+          <input
+            id="Price"
+            type="Price"
+            placeholder="enter a Price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </label>
 
-      <label htmlFor="Location">
-        <input
-          id="Location"
-          type="Location"
-          placeholder="enter a Location"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        />
-      </label>
-      <button type="submit">CREATE</button>
-    </form>
+        <label htmlFor="Location">
+          <input
+            id="Location"
+            type="Location"
+            placeholder="enter a Location"
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+          />
+        </label>
+        <button type="submit">CREATE</button>
+      </form>
+    </Layout>
   );
 };
 

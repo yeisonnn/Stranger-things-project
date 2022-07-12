@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import classes from './Update.module.css';
 import { getCurrentData } from '../utils/auth';
 import { useParams } from 'react-router-dom';
@@ -7,10 +7,12 @@ import { updateFetch } from '../api';
 import Layout from './Layout';
 
 const UpdatePost = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
-  const [location, setLocation] = useState('');
+  const dataPost = useLocation()
+  const postInfo = dataPost.state.postInfo
+  const [title, setTitle] = useState(postInfo.title);
+  const [description, setDescription] = useState(postInfo.description);
+  const [price, setPrice] = useState(postInfo.price);
+  const [location, setLocation] = useState(postInfo.location);
   const navigate = useNavigate();
 
   const params = useParams();
